@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 13px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    color: rgb(252, 135, 40);
+}
+
+.SubCategoryBox {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 30px;
+}
+
+ul {
+    list-style: none;
+}
+
+.SubCategoryBox ul li {
+    display: block;
+    float: left;
+    width: 200px;
+}
+.showmore {
+    clear: both;
+    text-align: center;
+}
+
+.showmore a { 
+    display:block; 
+    width:120px; 
+    margin:0 auto; 
+    line-height:24px; 
+    border:1px solid #AAA;
+}
+
+.showmore a span {
+    padding-left: 20px;
+    background: url(img/down.png) no-repeat 0 0;
+}
+
+.promoted a {
+    color: rgb(252, 126, 42);
+}

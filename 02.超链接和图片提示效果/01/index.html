@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>超链接和图片提示效果</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div>
+        <p><a href="#" class="tooltip" title="这是我的超链接提示 1">提示 1</a></p>
+        <p><a href="#" class="tooltip" title="这是我的超链接提示 2">提示 2</a></p>
+        <p><a href="#" title="这是自带提示 1">自带提示 1</a></p>
+        <p><a href="#" title="这是自带提示 2">自带提示 2</a></p>
+    </div>
+    <div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function(){
+        var x=10;
+        var y=20;
+        $("a.tooltip").mouseover(function(e){
+            this.myTitle = this.title;
+            this.title = "";
+            var tooltip="<div id='tooltip'>"+this.myTitle+"<\/div>";
+            $("body div:first").append(tooltip);
+            $("#tooltip")
+                .css({
+                    "top":(e.pageY+y) + "px",
+                    "left":(e.pageX+x) + "px"
+                }).show("fast");
+            }).mouseout(function(){
+                this.title =this.myTitle;
+                $("#tooltip").remove();
+            }).mousemove(function(e){
+                $("#tooltip")
+                .css({
+                    "top":(e.pageY+y) + "px",
+                    "left":(e.pageX+x) + "px"
+                })
+            })
+        })
+    </script>
+</body>
+</html>

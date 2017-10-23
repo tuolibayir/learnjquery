@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片提示</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <ul>
+        <li><a href="img/0_02.png" class="tooltip" title="灰色"><img src="img/0_01.png" alt="灰色"></a></li>
+        <li><a href="img/1_02.png" class="tooltip" title="紫色"><img src="img/1_01.png" alt="紫色"></a></li>
+        <li><a href="img/2_02.png" class="tooltip" title="绿色"><img src="img/2_01.png" alt="绿色"></a></li>
+        <li><a href="img/3_02.png" class="tooltip" title="黄色"><img src="img/3_01.png" alt="黄色"></a></li>
+    </ul>
+    <script src="jquery.js"></script>
+    <script>
+        $(function(){
+            var x=10;
+            var y=20;
+                    //设置提示和鼠标距离
+            $("a.tooltip").mouseover(function(e){   //鼠标移入
+                this.myTitle=this.title;
+                this.title="";
+                var imgTitle=this.myTitle?"<br/>"+this.myTitle:"";
+                var tooltip="<div id='tooltip'><img src='"+this.href+"' alt='预览图'/>"+imgTitle+"</div>";//提示图片代码
+                $("body").append(tooltip);      //显示图片
+                $("#tooltip")
+                        .css({
+                            "top":(e.pageY+y)+"px",
+                            "left":(e.pageX+x)+"px"     //显示在鼠标位置
+                        }).show("fast");
+            }).mouseout(function(){     //鼠标移出
+                this.title=this.myTitle;
+                $("#tooltip").remove();
+            }).mousemove(function(e){   //鼠标移动跟随
+                $("#tooltip")
+                        .css({
+                            "top":(e.pageY+y)+"px",
+                            "left":(e.pageX+x)+"px"
+                        })
+            })
+        })
+    </script>
+</body>
+</html>

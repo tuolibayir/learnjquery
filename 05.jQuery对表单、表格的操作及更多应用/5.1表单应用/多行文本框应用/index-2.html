@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div class="msg">
+            <div class="msg_caption">
+                <span class="up">向上</span>
+                <span class="down">向下</span>
+            </div>
+            <div>
+                <textarea id="comment" cols="20" rows="8">多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。多行文本框高度变化。</textarea>
+            </div>
+        </div>
+    </form>
+    <script src="jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function(){
+            var $comment=$("#comment");
+            $(".up").click(function(){
+                if(!$comment.is(":animated")){
+                    
+                        $comment.animate({scrollTop:"-=50"},400);
+                    
+                }    
+            });
+            $(".down").click(function(){
+                if(!$comment.is(":animated")){
+                  
+                        $comment.animate({scrollTop:"+=50"},400);
+                    
+                }    
+            })
+        })
+    </script>
+</body>
+</html>
